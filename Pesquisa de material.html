@@ -1,0 +1,27 @@
+let conteudoPDF = "";
+
+async function carregarDados(){
+
+    try{
+
+        const resposta =
+            await fetch("./estoque.txt");
+
+        conteudoPDF =
+            await resposta.text();
+
+        console.log("Dados carregados.");
+
+    }catch(erro){
+
+        alert(
+            "Não foi possível carregar estoque.txt"
+        );
+
+        console.error(erro);
+
+    }
+
+}
+
+window.onload = carregarDados;
